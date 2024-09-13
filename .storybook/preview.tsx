@@ -5,6 +5,9 @@ import type { Preview } from "@storybook/react";
 import React from "react";
 
 const preview: Preview = {
+  decorators: [
+    (renderStory) => <MantineProvider>{renderStory()}</MantineProvider>,
+  ],
   parameters: {
     controls: {
       matchers: {
@@ -19,7 +22,3 @@ const preview: Preview = {
 };
 
 export default preview;
-
-export const decorators = [
-  (renderStory) => <MantineProvider>{renderStory()}</MantineProvider>,
-];
