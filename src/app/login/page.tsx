@@ -1,6 +1,6 @@
 "use client";
 
-import { useURL } from "@/components/URLContext";
+import { useURL } from "@/components/contexts/URLContext";
 import { createClient } from "@/utils/supabase/client";
 import { Button } from "@mantine/core";
 

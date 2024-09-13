@@ -2,7 +2,7 @@ import "@mantine/core/styles.css";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
-import { URLProvider } from "@/components/URLContext";
+import { URLProvider } from "@/components/contexts/URLContext";
 import { getURL } from "@/utils/getURL";
 import type { Metadata } from "next";
 
