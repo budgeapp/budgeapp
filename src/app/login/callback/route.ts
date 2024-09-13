@@ -1,29 +1,22 @@
+import { getURL } from "@/utils/getURL";
 import { createClient } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url);
+  const { searchParams } = new URL(request.url);
 
   const authCode = searchParams.get("code");
   const next = searchParams.get("next") ?? "/";
+  const url = getURL();
 
   if (authCode) {
     const supabase = createClient();
     const { error } = await supabase.auth.exchangeCodeForSession(authCode);
 
     if (!error) {
-      const forwardedHost = request.headers.get("x-forwarded-host"); // original origin before load balancer
-      const isLocalEnv = process.env.NODE_ENV === "development";
-
-      if (isLocalEnv) {
-        return NextResponse.redirect(`${origin}${next}`);
-      } else if (forwardedHost) {
-        return NextResponse.redirect(`https://${forwardedHost}${next}`);
-      } else {
-        return NextResponse.redirect(`${origin}${next}`);
-      }
+      return NextResponse.redirect(`${url}${next}`);
     }
   }
 
-  return NextResponse.redirect(`${origin}/login`);
+  return NextResponse.redirect(`${url}/login`);
 }
