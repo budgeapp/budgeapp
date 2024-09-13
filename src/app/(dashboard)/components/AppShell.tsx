@@ -1,6 +1,6 @@
 "use client";
 
-import { LogoutButton } from "@/components/LogoutButton";
+import { LogoutButton } from "@/app/(dashboard)/components/LogoutButton";
 import { useUser } from "@/components/contexts/UserContext";
 import { AppShell as _AppShell, Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";

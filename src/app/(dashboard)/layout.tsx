@@ -1,4 +1,4 @@
-import { AppShell } from "@/components/AppShell";
+import { AppShell } from "@/app/(dashboard)/components/AppShell";
 import { UserProvider } from "@/components/contexts/UserContext";
 import { createClient } from "@/utils/supabase/server";
 import { AppShellMain, AppShellNavbar } from "@mantine/core";
