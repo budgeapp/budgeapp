@@ -28,8 +28,7 @@ export const AppShell = ({
         <LogoutButton />
       </_AppShell.Header>
 
-      <_AppShell.Navbar p="md">Navbar</_AppShell.Navbar>
-      <_AppShell.Main>{children}</_AppShell.Main>
+      <>{children}</>
     </_AppShell>
   );
 };
