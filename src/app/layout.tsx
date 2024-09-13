@@ -2,10 +2,9 @@ import "@mantine/core/styles.css";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
-import { UserProvider } from "@/components/auth/UserContext";
-import { createClient } from "@/utils/supabase/server";
+import { URLProvider } from "@/components/URLContext";
+import { getURL } from "@/utils/getURL";
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,10 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const supabase = createClient();
-  const user = supabase.auth
-    .getUser()
-    .then((res) => res.data.user || redirect("/login"));
+  const url = getURL();
 
   return (
     <html lang="en">
@@ -29,7 +25,7 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider>
-          <UserProvider userPromise={user}>{children}</UserProvider>
+          <URLProvider value={url}>{children}</URLProvider>
         </MantineProvider>
       </body>
     </html>
