@@ -19,5 +19,5 @@
     }
   },
   "forwardPorts": [3000, 6006, 54323, 54324],
-  "postCreateCommand": "pnpm dlx supabase start"
+  "postCreateCommand": "pnpm install && pnpm dlx supabase start"
 }
