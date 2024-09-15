@@ -1,1 +1,1 @@
-supabase gen types --local > src/types/supabase.d.ts
+pnpm dlx supabase gen types --local > src/types/supabase.d.ts
