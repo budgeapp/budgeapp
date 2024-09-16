@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@budgeapp/styles": "^1.0.0",
     "@mantine/core": "^7.12.2",
     "@mantine/dates": "^7.12.2",
     "@mantine/hooks": "^7.12.2",

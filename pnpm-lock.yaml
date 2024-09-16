@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@budgeapp/styles':
+        specifier: ^1.0.0
+        version: 1.0.0(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mantine/core':
         specifier: ^7.12.2
         version: 7.12.2(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -772,6 +775,9 @@ packages:
 
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
+
+  '@budgeapp/styles@1.0.0':
+    resolution: {integrity: sha512-FtpACiUobZ7gM8EoFuX3ZO3YpkKYmJqh83jphtdGtzXsDsSUJnMV9MxyiDRgizRiRkf43NkLdJ1uPDWv9EC2Tg==, tarball: https://npm.pkg.github.com/download/@budgeapp/styles/1.0.0/487442da2ef19e0c0e11d1cc047d4ab2298b5de6}
 
   '@chromatic-com/storybook@1.9.0':
     resolution: {integrity: sha512-vYQ+TcfktEE3GHnLZXHCzXF/sN9dw+KivH8a5cmPyd9YtQs7fZtHrEgsIjWpYycXiweKMo1Lm1RZsjxk8DH3rA==}
@@ -6233,6 +6239,15 @@ snapshots:
   '@base2/pretty-print-object@1.0.1': {}
 
   '@bcoe/v8-coverage@0.2.3': {}
+
+  '@budgeapp/styles@1.0.0(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@mantine/core': 7.12.2(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+    transitivePeerDependencies:
+      - '@mantine/hooks'
+      - '@types/react'
+      - react
+      - react-dom
 
   '@chromatic-com/storybook@1.9.0(react@18.3.1)':
     dependencies:

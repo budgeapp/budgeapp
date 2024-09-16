@@ -4,7 +4,7 @@ import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import { URLProvider } from "@/components/contexts/URLContext";
 import { getURL } from "@/utils/getURL";
-import { theme } from "@/utils/theme";
+import { theme } from "@budgeapp/styles";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
