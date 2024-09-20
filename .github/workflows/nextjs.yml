@@ -15,5 +15,8 @@ jobs:
         with:
           node-version-file: .node-version
           cache: pnpm
+          registry-url: "https://npm.pkg.github.com/"
       - run: pnpm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: pnpm test
