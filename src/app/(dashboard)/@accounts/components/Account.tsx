@@ -1,5 +1,10 @@
-import { AccountRow } from "./AccountsList";
+import { type AccountRow } from "./AccountsList";
 
-export const Account = ({ account }: { account: AccountRow }) => (
+interface AccountProperties {
+  /** Account details */
+  account: AccountRow;
+}
+
+export const Account = ({ account }: AccountProperties) => (
   <li>{account.name}</li>
 );

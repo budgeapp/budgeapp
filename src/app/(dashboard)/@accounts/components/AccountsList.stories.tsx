@@ -12,7 +12,15 @@ export const Default: Story = {
     accounts: [
       {
         id: "some_uuid",
-        name: "Account Name",
+        name: "Account 1",
+      },
+      {
+        id: "some_other_uuid",
+        name: "Account 2",
+      },
+      {
+        id: "yet_another_uuid",
+        name: "Account 3",
       },
     ],
   },

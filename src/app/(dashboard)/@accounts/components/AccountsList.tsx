@@ -1,4 +1,4 @@
-import { Database } from "@/types/supabase";
+import { type Database } from "@/types/supabase";
 import { Account } from "./Account";
 
 export type AccountRow = Pick<
@@ -6,7 +6,12 @@ export type AccountRow = Pick<
   "id" | "name"
 >;
 
-export const AccountsList = ({ accounts }: { accounts: AccountRow[] }) => {
+interface AccountsListProperties {
+  /** List of accounts */
+  accounts: AccountRow[];
+}
+
+export const AccountsList = ({ accounts }: AccountsListProperties) => {
   return (
     <ul>
       {accounts.map((account) => (
