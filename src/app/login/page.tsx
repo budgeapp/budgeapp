@@ -1,11 +1,11 @@
 "use client";
 
 import { useURL } from "@/components/contexts/URLContext";
-import { createClient } from "@/utils/supabase/client";
+import { createBrowserClient } from "@/utils/supabase/client";
 import { Button } from "@mantine/core";
 
 export default function Login() {
-  const supabase = createClient();
+  const supabase = createBrowserClient();
   const url = useURL();
 
   const handleSignIn = async () =>

@@ -1,6 +1,6 @@
 "use client";
 
-import { createClient } from "@/utils/supabase/client";
+import { createBrowserClient } from "@/utils/supabase/client";
 import { type User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { createContext, use, useContext } from "react";
@@ -14,7 +14,7 @@ export const UserProvider = ({
   children: React.ReactNode;
   userPromise: Promise<User>;
 }>) => {
-  const supabase = createClient();
+  const supabase = createBrowserClient();
   const router = useRouter();
 
   supabase.auth.onAuthStateChange((event) => {

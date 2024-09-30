@@ -1,13 +1,13 @@
 import { AppShell } from "@/app/(dashboard)/components/AppShell";
 import { UserProvider } from "@/components/contexts/UserContext";
-import { createClient } from "@/utils/supabase/server";
+import { createServerClient } from "@/utils/supabase/server";
 import { AppShellMain, AppShellNavbar } from "@mantine/core";
 import { AccountsList } from "./components/AccountsList";
 
 export default function DashboardLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const supabase = createClient();
+  const supabase = createServerClient();
   const user = supabase.auth.getUser().then((res) => res.data.user!);
 
   return (

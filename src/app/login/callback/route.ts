@@ -1,5 +1,5 @@
 import { getURL } from "@/utils/getURL";
-import { createClient } from "@/utils/supabase/server";
+import { createServerClient } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
@@ -10,7 +10,7 @@ export async function GET(request: Request) {
   const url = getURL();
 
   if (authCode) {
-    const supabase = createClient();
+    const supabase = createServerClient();
     const { error } = await supabase.auth.exchangeCodeForSession(authCode);
 
     if (!error) {
