@@ -2,6 +2,7 @@ import { AppShell } from "@/app/(dashboard)/components/AppShell";
 import { UserProvider } from "@/components/contexts/UserContext";
 import { createClient } from "@/utils/supabase/server";
 import { AppShellMain, AppShellNavbar } from "@mantine/core";
+import { AccountsList } from "./components/AccountsList";
 
 export default function DashboardLayout({
   children,
@@ -12,7 +13,9 @@ export default function DashboardLayout({
   return (
     <UserProvider userPromise={user}>
       <AppShell>
-        <AppShellNavbar p="md">Navbar</AppShellNavbar>
+        <AppShellNavbar p="md">
+          <AccountsList />
+        </AppShellNavbar>
         <AppShellMain>{children}</AppShellMain>
       </AppShell>
     </UserProvider>
