@@ -8,8 +8,10 @@ export const AddAccountButton = () => {
   const [opened, { open, close }] = useDisclosure();
 
   const handleSubmit = async (formData: FormData) => {
-    console.debug(formData);
-    createAccount(formData);
+    try {
+      await createAccount(formData);
+    } catch {}
+
     close();
   };
 

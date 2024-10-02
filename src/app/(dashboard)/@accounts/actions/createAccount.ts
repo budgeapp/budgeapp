@@ -1,6 +1,7 @@
 "use server";
 
 import { createServerClient } from "@/utils/supabase/server";
+import { revalidatePath } from "next/cache";
 
 export const createAccount = async (formData: FormData) => {
   const supabase = createServerClient();
@@ -10,6 +11,6 @@ export const createAccount = async (formData: FormData) => {
     user_id: (await supabase.auth.getUser()).data!.user!.id,
   };
 
-  const response = await supabase.from("accounts").insert(data);
-  console.debug(response);
+  await supabase.from("accounts").insert(data);
+  revalidatePath("/(dashboard)/@accounts");
 };
