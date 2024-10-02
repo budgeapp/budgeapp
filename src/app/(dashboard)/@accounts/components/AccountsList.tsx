@@ -1,5 +1,6 @@
 import { type Database } from "@/types/supabase";
 import { Account } from "./Account";
+import { AddAccountButton } from "./AddAccountButton";
 
 export type AccountRow = Pick<
   Database["public"]["Tables"]["accounts"]["Row"],
@@ -13,10 +14,16 @@ interface AccountsListProperties {
 
 export const AccountsList = ({ accounts }: AccountsListProperties) => {
   return (
-    <ul>
-      {accounts.map((account) => (
-        <Account key={account.id} account={account} />
-      ))}
-    </ul>
+    <section>
+      <header>
+        <h1>Accounts</h1>
+        <AddAccountButton />
+      </header>
+      <ul>
+        {accounts.map((account) => (
+          <Account key={account.id} account={account} />
+        ))}
+      </ul>
+    </section>
   );
 };
