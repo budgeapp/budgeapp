@@ -1,26 +1,52 @@
 "use client";
 
-import { Button, Modal } from "@mantine/core";
+import { Button, Modal, TextInput } from "@mantine/core";
+import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
-import { createAccount } from "../actions/createAccount";
+import { useState } from "react";
+import { createAccount, CreateAccountValues } from "../actions/createAccount";
 
 export const AddAccountButton = () => {
   const [opened, { open, close }] = useDisclosure();
+  const [disabled, setDisabled] = useState(false);
 
-  const handleSubmit = async (formData: FormData) => {
-    try {
-      await createAccount(formData);
-    } catch {}
+  const form = useForm<CreateAccountValues>({
+    mode: "uncontrolled",
+    initialValues: {
+      name: "",
+    },
+  });
 
+  const closeModal = () => {
     close();
+    setDisabled(false);
+    form.reset();
+  };
+
+  const handleSubmit = async (values: CreateAccountValues) => {
+    setDisabled(true);
+
+    try {
+      await createAccount(values);
+      closeModal();
+    } catch {
+      setDisabled(false);
+    }
   };
 
   return (
     <>
-      <Modal opened={opened} onClose={close} centered>
-        <form action={handleSubmit}>
-          <input type="text" name="name" required />
-          <Button type="submit">Create account</Button>
+      <Modal opened={opened} onClose={closeModal} centered>
+        <form onSubmit={form.onSubmit(handleSubmit)}>
+          <TextInput
+            label="Account Name"
+            key={form.key("name")}
+            required
+            {...form.getInputProps("name")}
+          />
+          <Button type="submit" disabled={disabled}>
+            Create account
+          </Button>
         </form>
       </Modal>
       <Button onClick={open}>Add Account</Button>

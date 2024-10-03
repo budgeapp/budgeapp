@@ -3,11 +3,15 @@
 import { createServerClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 
-export const createAccount = async (formData: FormData) => {
+export interface CreateAccountValues {
+  name: string;
+}
+
+export const createAccount = async (values: CreateAccountValues) => {
   const supabase = createServerClient();
 
   const data = {
-    name: formData.get("name") as string,
+    ...values,
     user_id: (await supabase.auth.getUser()).data!.user!.id,
   };
 

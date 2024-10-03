@@ -16,6 +16,7 @@
     "@budgeapp/styles": "^1.0.0",
     "@mantine/core": "^7.13.0",
     "@mantine/dates": "^7.13.0",
+    "@mantine/form": "^7.13.1",
     "@mantine/hooks": "^7.13.0",
     "@supabase/ssr": "^0.5.1",
     "@supabase/supabase-js": "^2.45.4",
